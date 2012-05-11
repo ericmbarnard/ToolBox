@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Architecture", "Architecture\Architecture.csproj", "{A6722921-C199-4D7A-9019-B973C48F63E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "Web\Web.csproj", "{4F666D09-3632-4A68-A068-16504242F0D3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{20DD28E6-92C6-4D8E-822E-EF82E5CDD261}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A6722921-C199-4D7A-9019-B973C48F63E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6722921-C199-4D7A-9019-B973C48F63E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6722921-C199-4D7A-9019-B973C48F63E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6722921-C199-4D7A-9019-B973C48F63E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F666D09-3632-4A68-A068-16504242F0D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F666D09-3632-4A68-A068-16504242F0D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F666D09-3632-4A68-A068-16504242F0D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F666D09-3632-4A68-A068-16504242F0D3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
