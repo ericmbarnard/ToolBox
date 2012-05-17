@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Architecture.Queries;
 
 namespace Architecture.Commands
 {
@@ -10,6 +11,30 @@ namespace Architecture.Commands
     /// </summary>
     public abstract class Command
     {
+        /// <summary>
+        /// Overide handler for Query Execution
+        /// </summary>
+        public Func<Query, object> QueryExecutor;
+
+        /// <summary>
+        /// Utility Method for executing queries inside of a Command
+        /// </summary>
+        /// <typeparam name="T">The Query Result Type</typeparam>
+        /// <param name="qry">The Query to Execute</param>
+        /// <returns>The Query Result</returns>
+        public T Query<T>(Query<T> qry)
+        {
+            if (QueryExecutor == null)
+            {
+                var executor = new QueryExecutor();
+                return executor.Query(qry);
+            }
+            else
+            {
+                return (T)QueryExecutor(qry);
+            }
+        }
+
         /// <summary>
         /// The logic for executing the command
         /// </summary>
