@@ -36,6 +36,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Munq.IocContainer">
+      <HintPath>..\packages\Munq.IocContainer.3.1.6\Lib\Munq.IocContainer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -49,6 +52,8 @@
   <ItemGroup>
     <Compile Include="Commands\CommandExecutor_Tests.cs" />
     <Compile Include="Commands\Command_Tests.cs" />
+    <Compile Include="Events\DomainEventArgs_Tests.cs" />
+    <Compile Include="Events\DomainEventExecutor_Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queries\QueryExecutor_Tests.cs" />
     <Compile Include="Queries\Query_Tests.cs" />
@@ -58,6 +63,9 @@
       <Project>{A6722921-C199-4D7A-9019-B973C48F63E9}</Project>
       <Name>Architecture</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />

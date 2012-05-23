@@ -47,8 +47,9 @@
   <ItemGroup>
     <Compile Include="Commands\Command.cs" />
     <Compile Include="Commands\CommandExecutor.cs" />
-    <Compile Include="Events\IDomainEvent.cs" />
-    <Compile Include="Events\IHandle.cs" />
+    <Compile Include="Events\DomainEventArgs.cs" />
+    <Compile Include="Events\DomainEventHandler.cs" />
+    <Compile Include="Events\DomainEventExecutor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queries\Query.cs" />
     <Compile Include="Queries\QueryExecutor.cs" />

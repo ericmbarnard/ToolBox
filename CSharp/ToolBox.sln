@@ -11,7 +11,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{20DD28
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Architecture.Tests", "Architecture.Tests\Architecture.Tests.csproj", "{BA051928-D0C6-42B7-8804-E433CF6A6610}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3610FCA9-2E46-46AC-90C2-0144DF1DAE3F}"
+	ProjectSection(SolutionItems) = preProject
+		Local.testsettings = Local.testsettings
+		ToolBox.vsmdi = ToolBox.vsmdi
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
 Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = ToolBox.vsmdi
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -25,6 +37,10 @@ Global
 		{4F666D09-3632-4A68-A068-16504242F0D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F666D09-3632-4A68-A068-16504242F0D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F666D09-3632-4A68-A068-16504242F0D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA051928-D0C6-42B7-8804-E433CF6A6610}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA051928-D0C6-42B7-8804-E433CF6A6610}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA051928-D0C6-42B7-8804-E433CF6A6610}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA051928-D0C6-42B7-8804-E433CF6A6610}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
