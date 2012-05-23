@@ -10,7 +10,7 @@ namespace Architecture.Tests.Queries
     {
         public override void Execute()
         {
-            this.Result = 1;
+            Result = 1;
         }
     }
 
@@ -25,7 +25,7 @@ namespace Architecture.Tests.Queries
             var executor = new QueryExecutor();
             var qry = new TestQuery();
 
-            int result = executor.Query(qry);
+            var result = executor.Query(qry);
 
             Assert.AreEqual(1, result);
         }
@@ -33,12 +33,11 @@ namespace Architecture.Tests.Queries
         [TestMethod]
         public void Overriding_Query_Execution_Works()
         {
-            var executor = new QueryExecutor();
-            executor.ExecutorOverride = q => 2;
+            var executor = new QueryExecutor { ExecutorOverride = q => 2 };
 
             var qry = new TestQuery();
 
-            int result = executor.Query(qry);
+            var result = executor.Query(qry);
 
             Assert.AreEqual(2, result);
         }

@@ -8,10 +8,15 @@ namespace Architecture.Commands
     /// </summary>
     public abstract class Command
     {
+        protected Command()
+        {
+            QueryExecutor = new QueryExecutor();
+        }
+
         /// <summary>
-        /// Overide handler for Query Execution
+        /// Class for executing utility Queries
         /// </summary>
-        public Func<Query, object> QueryExecutor;
+        public QueryExecutor QueryExecutor { get; private set; }
 
         /// <summary>
         /// Utility Method for executing queries inside of a Command
@@ -21,13 +26,7 @@ namespace Architecture.Commands
         /// <returns>The Query Result</returns>
         public T Query<T>(Query<T> qry)
         {
-            if (QueryExecutor != null)
-            {
-                return (T) QueryExecutor(qry);
-            }
-
-            var executor = new QueryExecutor();
-            return executor.Query(qry);
+            return QueryExecutor.Query(qry);
         }
 
         /// <summary>
