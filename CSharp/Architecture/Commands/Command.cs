@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Architecture.Queries;
 
 namespace Architecture.Commands
@@ -24,15 +21,13 @@ namespace Architecture.Commands
         /// <returns>The Query Result</returns>
         public T Query<T>(Query<T> qry)
         {
-            if (QueryExecutor == null)
+            if (QueryExecutor != null)
             {
-                var executor = new QueryExecutor();
-                return executor.Query(qry);
+                return (T) QueryExecutor(qry);
             }
-            else
-            {
-                return (T)QueryExecutor(qry);
-            }
+
+            var executor = new QueryExecutor();
+            return executor.Query(qry);
         }
 
         /// <summary>

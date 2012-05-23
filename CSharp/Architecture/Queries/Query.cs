@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Architecture.Queries
 {
@@ -89,11 +86,10 @@ namespace Architecture.Queries
 
             take = (take == 0 ? 250 : take);
 
-            int page = 1;
             int pageSize = take;
 
-            double divPage = (skip / pageSize);
-            page = Convert.ToInt32(Math.Ceiling(divPage));
+            double divPage = skip / pageSize;
+            int page = Convert.ToInt32(Math.Ceiling(divPage));
 
             page = (page < 1 ? 1 : page);
 
