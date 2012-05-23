@@ -1,8 +1,4 @@
-﻿using System;
-using System.Text;
-using System.Collections.Generic;
-using System.Linq;
-using Architecture.Events;
+﻿using Architecture.Events;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Munq;
 
@@ -47,7 +43,7 @@ namespace Architecture.Tests.Events
         public void Basic_EventExecution_Works()
         {
             var container = new IocContainer();
-            container.Register<TestHandlerOne>(c => new TestHandlerOne());
+            container.Register(c => new TestHandlerOne());
 
             var executor = new DomainEventExecutor(container);
             
