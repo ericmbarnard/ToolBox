@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Architecture.Queries;
+﻿using Architecture.Queries;
 using Architecture.Commands;
 
 namespace Architecture.Events
