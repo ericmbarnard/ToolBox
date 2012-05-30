@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using System.Web.Hosting;
 
 namespace Architecture.BackgroundTasks
 {

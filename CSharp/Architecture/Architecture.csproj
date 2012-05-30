@@ -45,6 +45,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BackgroundTasks\BackgroundTask.cs" />
+    <Compile Include="BackgroundTasks\BackgroundTaskExecutor.cs" />
+    <Compile Include="BackgroundTasks\BackgroundTaskMemoryQueue.cs" />
+    <Compile Include="BackgroundTasks\IBackgroundTaskQueue.cs" />
     <Compile Include="Commands\Command.cs" />
     <Compile Include="Commands\CommandExecutor.cs" />
     <Compile Include="Events\DomainEventArgs.cs" />
