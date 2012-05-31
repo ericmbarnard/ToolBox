@@ -4,8 +4,17 @@ namespace Architecture.BackgroundTasks
 {
     public class BackgroundTaskMemoryQueue : IBackgroundTaskQueue
     {
-        private ConcurrentQueue<BackgroundTask> _taskQueue = new ConcurrentQueue<BackgroundTask>();
-        
+        private readonly ConcurrentQueue<BackgroundTask> _taskQueue;
+
+        #region Ctor
+
+        public BackgroundTaskMemoryQueue()
+        {
+            _taskQueue = new ConcurrentQueue<BackgroundTask>();
+        }
+
+        #endregion
+
         public void Enqueue(BackgroundTask task)
         {
             _taskQueue.Enqueue(task);
@@ -27,10 +36,7 @@ namespace Architecture.BackgroundTasks
 
         public void Initialize()
         {
-            if (_taskQueue != null) return;
-
-            _taskQueue = new ConcurrentQueue<BackgroundTask>();
-            
+            // nothing to implement for this specific queue
         }
         
         public bool IsEmpty

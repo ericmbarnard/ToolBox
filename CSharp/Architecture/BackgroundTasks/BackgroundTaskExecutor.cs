@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using System.Web.Hosting;
+using System;
 
 namespace Architecture.BackgroundTasks
 {
@@ -9,20 +9,51 @@ namespace Architecture.BackgroundTasks
     /// <remarks>
     /// Thanks Ayende https://github.com/fitzchak/RaccoonBlog/blob/master/HibernatingRhinos.Loci.Common/Tasks/TaskExecutor.cs
     /// </remarks>
-    public static class BackgroundTaskExecutor
+    public class BackgroundTaskExecutor
     {
-        private static readonly IBackgroundTaskQueue _taskQueue = new BackgroundTaskMemoryQueue();
-        private static readonly object _locker = new object();
-        private static bool _initialized;
-        private static bool _running;
+        private readonly IBackgroundTaskQueue _taskQueue;
+        private readonly object _locker = new object();
+        private bool _initialized;
+        private bool _running;
 
-        public static void QueueTask(BackgroundTask task)
+        #region Ctor
+
+        public BackgroundTaskExecutor()
+            : this(new BackgroundTaskMemoryQueue())
+        {
+        }
+
+        public BackgroundTaskExecutor(IBackgroundTaskQueue taskQueue)
+        {
+            if (taskQueue == null)
+                throw new ArgumentNullException("taskQueue");
+
+            _taskQueue = taskQueue;
+            _taskQueue.Initialize();
+            _initialized = true;
+        } 
+        #endregion
+
+        public void Initialize()
+        {
+            if (_initialized)
+                return;
+
+            lock (_locker)
+            {
+                if (!_initialized)
+                    _taskQueue.Initialize();
+                _initialized = true;
+            }
+        }
+
+        public void QueueTask(BackgroundTask task)
         {
             Initialize();
             _taskQueue.Enqueue(task);
         }
 
-        public static void StartExecuting()
+        public void StartExecuting()
         {
             Initialize();
 
@@ -42,7 +73,7 @@ namespace Architecture.BackgroundTasks
             }
         }
 
-        public static void ProcessQueue()
+        public void ProcessQueue()
         {
             while (!_taskQueue.IsEmpty)
             {
@@ -60,26 +91,12 @@ namespace Architecture.BackgroundTasks
             }
         }
 
-        public static void ExecuteTask(BackgroundTask task)
+        private void ExecuteTask(BackgroundTask task)
         {
             // ripe for more logic here, but this is a toolkit...
             // ideally we would probably be supplying open db connections
             // or db contexts and letting the task use those...
             task.Run();
         }
-
-        public static void Initialize()
-        {
-            if (_initialized)
-                return;
-
-            lock (_locker)
-            {
-                if(!_initialized)
-                    _taskQueue.Initialize();
-                _initialized = true;
-            }
-        }
-
     }
 }
